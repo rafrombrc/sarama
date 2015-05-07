@@ -111,6 +111,13 @@ type Config struct {
 			// If enabled, any errors that occured while consuming are returned on the Errors channel (default disabled).
 			Errors bool
 		}
+
+		// TODO these need documentation, defaults, and validation
+		Group string
+
+		Offsets struct {
+			CommitInterval time.Duration
+		}
 	}
 
 	// A user-provided string sent with every request to the brokers for logging, debugging, and auditing purposes.

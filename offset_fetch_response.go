@@ -80,3 +80,15 @@ func (r *OffsetFetchResponse) decode(pd packetDecoder) (err error) {
 
 	return nil
 }
+
+func (r *OffsetFetchResponse) GetBlock(topic string, partition int32) *OffsetFetchResponseBlock {
+	if r.Blocks == nil {
+		return nil
+	}
+
+	if r.Blocks[topic] == nil {
+		return nil
+	}
+
+	return r.Blocks[topic][partition]
+}
